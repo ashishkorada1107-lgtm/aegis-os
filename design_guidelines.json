@@ -1,0 +1,254 @@
+{
+  "project_title": "Aegis OS - Personal AI Command Center PWA",
+  "design_archetype": "Linear / Raycast / Cyber-Executive",
+  "theme": {
+    "mode": "dark",
+    "canvas": "#06080E",
+    "background_gradient": "radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.12) 0%, rgba(6, 8, 14, 0) 70%)",
+    "background_grid": "radial-gradient(#1E293B 1px, transparent 1px)",
+    "grid_density": "24px 24px",
+    "grid_opacity": "0.2"
+  },
+  "typography": {
+    "heading_and_ui": "Inter, 'Plus Jakarta Sans', system-ui, sans-serif",
+    "metrics_and_timers": "'JetBrains Mono', 'Fira Code', monospace",
+    "font_rules": [
+      "Use tabular-nums class on all countdowns, clocks, step counts, score history, and metrics to prevent layout jitter",
+      "Headings should use tracking-tight or tracking-tighter",
+      "Overlines and badges should be uppercase, text-xs, with tracking-[0.2em]",
+      "Do NOT use Space Grotesk (Forbidden font for dashboards)"
+    ]
+  },
+  "color_system": {
+    "canvas": "#06080E",
+    "bento_cards": "#0D111A",
+    "bento_border": "rgba(255, 255, 255, 0.10)",
+    "bento_hover_border": "rgba(6, 182, 212, 0.40)",
+    "bento_inset_shadow": "inset 0 1px 0 rgba(255, 255, 255, 0.08)",
+    "text_primary": "#F8FAFC",
+    "text_secondary": "#94A3B8",
+    "text_muted": "#64748B",
+    "accents": {
+      "zero_ai": {
+        "hex": "#06B6D4",
+        "tailwind": "cyan-500",
+        "glow": "rgba(6, 182, 212, 0.25)",
+        "label": "AI Chief-of-Staff Zero"
+      },
+      "health": {
+        "hex": "#10B981",
+        "tailwind": "emerald-500",
+        "glow": "rgba(16, 185, 129, 0.25)",
+        "label": "Health & Bio-Metrics"
+      },
+      "coding_ml": {
+        "hex": "#8B5CF6",
+        "tailwind": "violet-500",
+        "glow": "rgba(139, 92, 246, 0.25)",
+        "label": "Coding Hub & ML Vault"
+      },
+      "exam_amber": {
+        "hex": "#F59E0B",
+        "tailwind": "amber-500",
+        "glow": "rgba(245, 158, 11, 0.3)",
+        "label": "Exam Mode Active"
+      },
+      "emergency_crimson": {
+        "hex": "#EF4444",
+        "tailwind": "red-500",
+        "glow": "rgba(239, 68, 68, 0.35)",
+        "label": "Emergency Mode Active"
+      }
+    },
+    "forbidden_colors": [
+      "#7351B7 (AI forbidden)",
+      "#1B93A4 (Teal forbidden)"
+    ]
+  },
+  "layout_and_spacing": {
+    "container_max_width": "1600px",
+    "grid_system": "Bento Grid Mode B (High Density Command Center)",
+    "spacing_philosophy": "Tight 16px to 24px gap with inner padding p-5 or p-6 to eliminate text edge collisions",
+    "card_radius": "rounded-xl (12px)",
+    "border_style": "1px solid rgba(255, 255, 255, 0.10) with inset top edge highlight",
+    "no_backdrop_blur_rule": "STRICT REQUIREMENT: NO backdrop-blur filters. Use solid #0D111A or 95% opacity #06080E surfaces for performance and sharp sub-50ms rendering."
+  },
+  "modules": [
+    {
+      "id": "global_topbar_and_nav",
+      "name": "Global Header & Command Bar",
+      "features": [
+        "Aegis OS branding badge with live status dot (green online / amber exam)",
+        "Exam/Emergency Mode toggle switch (shifts top radial glow and accent borders from Cyan to Amber/Crimson)",
+        "Next-class live countdown pill (JetBrains Mono tabular-nums)",
+        "Global Notification bell with popover drawer",
+        "Ctrl+K Command Palette trigger (Raycast style modal search with keybindings and instant action execution)"
+      ],
+      "data_testids": [
+        "global-header",
+        "exam-mode-toggle",
+        "emergency-mode-toggle",
+        "next-class-pill",
+        "cmd-k-trigger",
+        "notification-bell"
+      ]
+    },
+    {
+      "id": "home_bento_dashboard",
+      "name": "Home Bento Dashboard",
+      "features": [
+        "User Greeting + ZERO AI ONLINE pulsing status indicator badge",
+        "4 High-Density KPI Cards: High-priority tasks counter, Next class countdown timer, Step ring percentage, Coding streak day count",
+        "Free-Slot Optimizer interactive timeline view",
+        "Hardware-styled Pomodoro Timer with 20-20-20 eye rest alerts & sound toggle"
+      ],
+      "data_testids": [
+        "home-dashboard-container",
+        "zero-status-badge",
+        "kpi-tasks-card",
+        "kpi-class-card",
+        "kpi-steps-card",
+        "kpi-streak-card",
+        "free-slot-timeline",
+        "pomodoro-timer-widget"
+      ]
+    },
+    {
+      "id": "timetable_ocr_uploader",
+      "name": "Timetable & Schedule Hub",
+      "features": [
+        "Drag-and-drop Timetable OCR Image/File uploader with AI parse simulation",
+        "Interactive weekly color-coded class grid",
+        "15-minute prior class notification alerts and location tags"
+      ],
+      "data_testids": [
+        "timetable-uploader-dropzone",
+        "timetable-weekly-grid",
+        "class-alert-banner"
+      ]
+    },
+    {
+      "id": "zero_ai_chief_of_staff",
+      "name": "Zero AI Assistant",
+      "features": [
+        "Full-page chat command view with conversational history",
+        "Slide-over HUD drawer accessible from anywhere via floating button or shortcut",
+        "Real-time audio voice waveform visualizer during speech",
+        "One-click executable Action Cards (e.g., 'Reschedule Lab', 'Draft Email', 'Lock Focus Mode')"
+      ],
+      "data_testids": [
+        "zero-chat-container",
+        "zero-slideover-hud",
+        "voice-waveform-canvas",
+        "action-card-execute-btn"
+      ]
+    },
+    {
+      "id": "academics_hub",
+      "name": "Academics & Knowledge Vault",
+      "features": [
+        "Syllabus Modules 1-6 progress tracker with completion bars",
+        "Markdown Lab Notes editor & view",
+        "10-MCQ Interactive Quiz runner with live countdown timer, auto-grading, and instant rationale",
+        "Score history performance chart (Recharts bar/line chart)"
+      ],
+      "data_testids": [
+        "academics-syllabus-progress",
+        "lab-notes-editor",
+        "quiz-runner-container",
+        "quiz-timer",
+        "quiz-submit-button",
+        "score-history-chart"
+      ]
+    },
+    {
+      "id": "coding_hub",
+      "name": "Coding & ML Hub",
+      "features": [
+        "GitHub & LeetCode activity heatmap grid",
+        "DSA Spaced Repetition Vault with confidence score tagging",
+        "Project Kanban board (Backlog, In Progress, Review, Shipped)",
+        "ML Experiment tracking table with metrics bar chart comparison"
+      ],
+      "data_testids": [
+        "github-leetcode-heatmap",
+        "dsa-vault-table",
+        "kanban-board",
+        "ml-experiment-table",
+        "ml-metrics-chart"
+      ]
+    },
+    {
+      "id": "health_and_biometrics",
+      "name": "Health & Energy Metrics",
+      "features": [
+        "Circular Step Ring SVG indicator",
+        "Sleep vs. Deep Work dual-axis balance chart",
+        "Hydration intake and Caffeine dosage tracker with quick-add buttons"
+      ],
+      "data_testids": [
+        "step-ring-widget",
+        "sleep-deepwork-chart",
+        "hydration-tracker",
+        "caffeine-tracker"
+      ]
+    },
+    {
+      "id": "webhooks_and_youtube_pipeline",
+      "name": "Webhooks & YouTube Pipeline Board",
+      "features": [
+        "Webhooks control grid with live terminal log console (Monospace retro stream)",
+        "YouTube video processing pipeline Kanban board (Idea -> Script -> Render -> Published)"
+      ],
+      "data_testids": [
+        "webhooks-control-grid",
+        "terminal-log-console",
+        "youtube-pipeline-board"
+      ]
+    },
+    {
+      "id": "settings_pwa",
+      "name": "Settings & PWA Management",
+      "features": [
+        "Gemini API key configuration form",
+        "Google Fit client ID integration fields",
+        "Export / Import offline JSON state backup tool",
+        "PWA offline status indicator & service worker cache manager"
+      ],
+      "data_testids": [
+        "settings-gemini-key-input",
+        "settings-googlefit-id-input",
+        "export-json-button",
+        "import-json-button"
+      ]
+    }
+  ],
+  "motion_and_microinteractions": {
+    "transition_duration": "150ms",
+    "easing_function": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "hover_effects": "Card border shifts to accent tint (e.g., cyan-500/40), subtle translateY(-1px)",
+    "pulsing_dots": "Live status indicators use pinging outer ring with crisp solid inner dot",
+    "scrollbars": "Custom 4px thin dark scrollbar with background #06080E and thumb #1E293B"
+  },
+  "image_urls": [
+    {
+      "category": "Zero AI Avatar",
+      "url": "https://images.unsplash.com/photo-1760813360432-9b5d79eb9679?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODl8MHwxfHNlYXJjaHwxfHxjeWJlcnB1bmslMjBmdXR1cmlzdGljJTIwZXhlY3V0aXZlJTIwYXZhdGFyJTIwY29tbWFuZCUyMGNlbnRlciUyMHRlY2h8ZW58MHx8fHwxNzk0MDUyNjM5fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Futuristic chamber with glowing energy beam for Zero AI core identity visual"
+    },
+    {
+      "category": "Command Center Ops",
+      "url": "https://images.unsplash.com/photo-1766019463451-04e0b1269f37?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODl8MHwxfHNlYXJjaHwyfHxjeWJlcnB1bmslMjBmdXR1cmlzdGljJTIwZXhlY3V0aXZlJTIwYXZhdGFyJTIwY29tbWFuZCUyMGNlbnRlciUyMHRlY2h8ZW58MHx8fHwxNzk0MDUyNjM5fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Control desk with multiple screens for Aegis OS background banner"
+    }
+  ],
+  "instructions_to_main_agent": [
+    "Use JavaScript (.js / .jsx) components under /app/frontend/src/",
+    "Implement high-density bento cards with strict 1px border-white/10 and top inset shadow",
+    "Never apply backdrop-blur or heavy transparent overlays; use solid dark cards (#0D111A)",
+    "Ensure all metric counters, clocks, and timers render with JetBrains Mono tabular-nums",
+    "Ensure all interactive elements have data-testid attributes matching the design_guidelines.json specification",
+    "Support offline persistence via localStorage / IndexedDB for all 7 modules",
+    "Include Ctrl+K keyboard shortcut listener for global command palette trigger"
+  ]
+}

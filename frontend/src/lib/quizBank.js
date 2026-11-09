@@ -1,0 +1,225 @@
+const Q = (q, options, answer, explain) => ({ q, options, answer, explain });
+
+export const QUIZ_BANK = {
+  CS301: [
+    Q(
+      "Which call creates a new process in UNIX?",
+      ["exec()", "fork()", "wait()", "spawn()"],
+      1,
+      "fork() duplicates the calling process; exec() replaces its image.",
+    ),
+    Q(
+      "Round Robin scheduling is primarily designed for…",
+      [
+        "Batch systems",
+        "Time-sharing systems",
+        "Real-time only",
+        "Embedded ROMs",
+      ],
+      1,
+      "RR uses a time quantum to give each process a fair CPU slice.",
+    ),
+    Q(
+      "Which is NOT a Coffman deadlock condition?",
+      ["Mutual exclusion", "Hold and wait", "Preemption", "Circular wait"],
+      2,
+      "The condition is NO preemption; allowing preemption breaks deadlock.",
+    ),
+    Q(
+      "Banker's algorithm is used for deadlock…",
+      ["Prevention", "Avoidance", "Detection only", "Recovery"],
+      1,
+      "It checks if granting a request keeps the system in a safe state.",
+    ),
+    Q(
+      "A semaphore initialized to 1 behaves like a…",
+      ["Counting barrier", "Mutex", "Spinlock-free queue", "Monitor"],
+      1,
+      "A binary semaphore provides mutual exclusion.",
+    ),
+    Q(
+      "Belady's anomaly can occur with which page replacement?",
+      ["LRU", "Optimal", "FIFO", "LFU"],
+      2,
+      "FIFO may increase page faults when frames increase.",
+    ),
+    Q(
+      "The TLB is a cache for…",
+      ["Disk blocks", "Page table entries", "Instructions", "Inodes"],
+      1,
+      "TLB caches virtual→physical page translations.",
+    ),
+    Q(
+      "A zombie process is one that…",
+      [
+        "Is orphaned",
+        "Has exited but not been reaped",
+        "Is in infinite loop",
+        "Lost its tty",
+      ],
+      1,
+      "Parent hasn't called wait(), so its PCB entry remains.",
+    ),
+    Q(
+      "Thrashing is caused by…",
+      [
+        "Too few page frames for working set",
+        "Fast disks",
+        "Large TLB",
+        "Multicore CPU",
+      ],
+      0,
+      "Processes spend more time paging than executing.",
+    ),
+    Q(
+      "Which Linux command shows per-process CPU usage live?",
+      ["ls", "top", "chmod", "grep"],
+      1,
+      "top refreshes running process stats in real time.",
+    ),
+  ],
+  CS302: [
+    Q(
+      "In a 5-stage pipeline, forwarding mainly resolves…",
+      ["Structural hazards", "Data hazards", "Control hazards", "Cache misses"],
+      1,
+      "Forwarding passes ALU results directly to dependent instructions.",
+    ),
+    Q(
+      "AMAT formula is…",
+      [
+        "Hit time × Miss rate",
+        "Hit time + Miss rate × Miss penalty",
+        "Miss penalty / Hit rate",
+        "CPI × Clock",
+      ],
+      1,
+      "Average Memory Access Time adds the expected miss cost.",
+    ),
+    Q(
+      "RISC architectures typically have…",
+      [
+        "Variable-length instructions",
+        "Few, fixed-length instructions",
+        "Microcode for all ops",
+        "Memory-to-memory ALU ops",
+      ],
+      1,
+      "Simple fixed-format ISAs enable pipelining.",
+    ),
+    Q(
+      "Booth's algorithm is used for…",
+      ["Division", "Signed multiplication", "Floating add", "Cache mapping"],
+      1,
+      "It multiplies two's-complement numbers efficiently.",
+    ),
+    Q(
+      "Direct-mapped cache: each block maps to…",
+      ["Any line", "Exactly one line", "One set of 4", "Main memory only"],
+      1,
+      "Index bits pick a single line.",
+    ),
+    Q(
+      "IEEE 754 single precision exponent bias is…",
+      ["127", "128", "1023", "255"],
+      0,
+      "Single precision uses 8 exponent bits with bias 127.",
+    ),
+    Q(
+      "DMA allows…",
+      [
+        "CPU to skip cache",
+        "Devices to transfer memory without CPU per-byte work",
+        "Faster ALU",
+        "Branch prediction",
+      ],
+      1,
+      "The DMA controller moves data and interrupts when done.",
+    ),
+    Q(
+      "Pipeline speedup for k stages, n instructions ≈",
+      ["k", "nk/(k+n−1)", "n/k", "k+n"],
+      1,
+      "Ideal speedup approaches k for large n.",
+    ),
+    Q(
+      "Which addressing mode uses a register plus constant?",
+      ["Immediate", "Displacement/Base", "Direct", "Indirect"],
+      1,
+      "Effective address = register + offset.",
+    ),
+    Q(
+      "Branch prediction mitigates…",
+      ["Data hazards", "Control hazards", "Structural hazards", "TLB misses"],
+      1,
+      "It guesses the branch outcome to keep the pipeline full.",
+    ),
+  ],
+  CS303: [
+    Q(
+      "Dijkstra's algorithm fails with…",
+      ["Cycles", "Negative edge weights", "Undirected graphs", "Sparse graphs"],
+      1,
+      "Negative edges break the greedy finalization. Use Bellman-Ford.",
+    ),
+    Q(
+      "Time complexity of building a heap from n elements?",
+      ["O(n log n)", "O(n)", "O(log n)", "O(n²)"],
+      1,
+      "Bottom-up heapify sums to O(n).",
+    ),
+    Q(
+      "Topological sort exists only for…",
+      ["Trees", "DAGs", "Complete graphs", "Bipartite graphs"],
+      1,
+      "Any cycle prevents a linear ordering.",
+    ),
+    Q(
+      "Master theorem: T(n)=2T(n/2)+n gives…",
+      ["O(n)", "O(n log n)", "O(n²)", "O(log n)"],
+      1,
+      "a=2, b=2, f(n)=n → case 2.",
+    ),
+    Q(
+      "LIS can be solved in…",
+      ["O(n log n)", "O(log n)", "O(n³) only", "O(1)"],
+      0,
+      "Patience sorting with binary search.",
+    ),
+    Q(
+      "Union-Find with path compression + rank is nearly…",
+      ["O(log n)", "O(α(n))", "O(n)", "O(√n)"],
+      1,
+      "Inverse Ackermann — effectively constant.",
+    ),
+    Q(
+      "0/1 Knapsack DP complexity is…",
+      ["O(nW)", "O(n log W)", "O(2ⁿ) always", "O(W)"],
+      0,
+      "Pseudo-polynomial in capacity W.",
+    ),
+    Q(
+      "BFS on an unweighted graph finds…",
+      [
+        "MST",
+        "Shortest paths in edges",
+        "Strongly connected components",
+        "Articulation points",
+      ],
+      1,
+      "Layers expand by distance 1.",
+    ),
+    Q(
+      "Which structure supports range-sum updates in O(log n)?",
+      ["Hash map", "Segment tree", "Linked list", "Stack"],
+      1,
+      "Segment/Fenwick trees handle range queries.",
+    ),
+    Q(
+      "Kruskal's algorithm relies on…",
+      ["DFS", "Union-Find", "Heapify", "Two pointers"],
+      1,
+      "Union-Find detects cycles when adding edges.",
+    ),
+  ],
+};
